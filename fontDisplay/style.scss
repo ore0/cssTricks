@@ -1,0 +1,98 @@
+/* StyleSheet for font Settings */
+@mixin notoSans {
+   font-family: 'Noto Sans';
+   font-style: normal;
+   font-weight: 400;
+   src: url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format('opentype');
+}
+
+@font-face {
+   @include notoSans;
+ }
+
+@font-face {
+  @include notoSans;
+  font-family: 'Noto Sans Swap';
+  font-display: swap;
+}
+
+.fdUnused {
+  font-family: 'Noto Sans', 'sans-serif';
+} //.fdUnused
+
+.fdUsed {
+  font-family: 'Noto Sans Swap', 'sans-serif';
+} //.fdUsed
+
+/* StyleSheet for page layout */
+$blue: #8EC5FC;
+$purple: #E0C3FC;
+$purple--dark: darken($purple, 70%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} //*
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 32px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: $blue;
+  background-image: linear-gradient(62deg, $blue 0%, $purple 100%);
+  color: $purple--dark;
+} //body
+
+.contTitle {
+  margin: 0 0 8px;
+  color: darken($purple, 70%);
+  font-size: 5vw;
+  text-align: center;
+} //.contTitle
+
+.contText {
+  display: block;
+  padding: 0 0 32px;
+  text-align: center;
+  font-size: 1.75vw;
+  &:before {
+    content: "※";
+  }
+} //.contText
+
+.content {
+   display: flex;
+  &__item {
+    padding: 16px;
+    border-radius: 4px;
+    background-color: rgba(#fff, .6);
+    &:not(:first-child) {
+      margin: 0 0 0 32px;
+    }
+    &__title {
+      margin-bottom: 16px;
+      font-size: 3vw;
+    }
+    &__text {
+      font-size: 1.5vw;
+    }
+  } //__item
+  @media screen and (max-width: 680px) {
+    flex-direction: column;
+    &__item {
+      &:not(:first-child) {
+        margin: 32px 0 0;
+
+      }
+    }
+  } //@media
+} //.content

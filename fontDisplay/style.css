@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/* StyleSheet for font Settings */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format("woff2"), url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format("woff"), url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format("woff2"), url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format("woff"), url(http://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format("opentype");
+  font-family: 'Noto Sans Swap';
+  font-display: swap;
+}
+.fdUnused {
+  font-family: 'Noto Sans', 'sans-serif';
+}
+
+.fdUsed {
+  font-family: 'Noto Sans Swap', 'sans-serif';
+}
+
+/* StyleSheet for page layout */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 32px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  color: #2e0456;
+}
+
+.contTitle {
+  margin: 0 0 8px;
+  color: #2e0456;
+  font-size: 5vw;
+  text-align: center;
+}
+
+.contText {
+  display: block;
+  padding: 0 0 32px;
+  text-align: center;
+  font-size: 1.75vw;
+}
+.contText:before {
+  content: "※";
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.content__item {
+  padding: 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.content__item:not(:first-child) {
+  margin: 0 0 0 32px;
+}
+.content__item__title {
+  margin-bottom: 16px;
+  font-size: 3vw;
+}
+.content__item__text {
+  font-size: 1.5vw;
+}
+@media screen and (max-width: 680px) {
+  .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .content__item:not(:first-child) {
+    margin: 32px 0 0;
+  }
+}
