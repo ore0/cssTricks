@@ -1,0 +1,34 @@
+@mixin bgSettings {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(https://www.pakutaso.com/shared/img/thumb/019AME5031_TP_V.jpg);
+}
+
+div {
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    @include bgSettings;
+    opacity: 0.4;
+    filter: blur(10px);
+  }
+  p {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    @include bgSettings;
+    font-size: 17.5vw;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

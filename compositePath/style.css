@@ -1,0 +1,40 @@
+div {
+  position: relative;
+}
+div:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(https://www.pakutaso.com/shared/img/thumb/019AME5031_TP_V.jpg);
+  opacity: 0.4;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+div p {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(https://www.pakutaso.com/shared/img/thumb/019AME5031_TP_V.jpg);
+  font-size: 17.5vw;
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
