@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+:root {
+  font-size: 62.5%;
+  font-weight: 400; }
+
+body {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(62deg, #d9f6ff, #7ec6ff);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: YuGothic, "Hiragino Sans", "Hiragino Kaku Gothic proN", YuGothic, sans-serif; }
+
+h1 {
+  color: #00467f;
+  font-size: 3rem; }
+
+a {
+  text-decoration: none;
+  box-sizing: border-box;
+  color: #00467f; }
+
+.route {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 960px; }
+  .route:before, .route:after {
+    content: "";
+    position: absolute;
+    height: 0.4rem;
+    background-color: #f62e36;
+    z-index: 1; }
+  .route:before {
+    top: 1rem;
+    left: 1.2rem;
+    width: calc(100% - 2.4rem); }
+  .route:after {
+    top: 13.8rem;
+    left: calc((100% / 24) * 3);
+    width: calc((((100% / 24) * 2))); }
+  .route__item {
+    display: block;
+    z-index: 10; }
+    .route__item a {
+      position: relative;
+      display: block;
+      width: 2.4rem;
+      height: 12.8rem;
+      padding-top: 3.2rem;
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      font-size: 1.6rem;
+      transition: all .2s ease-in-out;
+      line-height: 2.4rem; }
+      .route__item a:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2.4rem;
+        height: 2.4rem;
+        border: solid 4px #f62e36;
+        border-radius: 50%;
+        margin-bottom: 8px;
+        background-color: #fff;
+        box-sizing: border-box; }
+      .route__item a:hover {
+        color: #0062b2;
+        transition: all .2s ease-in-out;
+        padding-top: 2.8rem; }
+        .route__item a:hover:before {
+          background-color: #f62e36;
+          transition: all .2s ease-in-out; }
+    .route__item--type2 a + a, .route__item--type3 a {
+      height: 12.8rem; }
+    .route__item--type3 {
+      position: relative;
+      margin-top: 12.8rem; }
+      .route__item--type3:before {
+        content: "";
+        position: absolute;
+        top: calc((-1 * 12.8rem) + 1rem);
+        left: calc((2.4rem - 0.4rem) / 2);
+        width: 0.4rem;
+        height: 12.8rem;
+        background-color: #f62e36;
+        z-index: -1; }
