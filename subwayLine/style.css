@@ -49,7 +49,7 @@ a {
   .route:after {
     top: 13.8rem;
     left: calc((100% / 24) * 3);
-    width: calc((((100% / 24) * 2))); }
+    width: calc(((100% / 24) * 2)); }
   .route__item {
     display: block;
     z-index: 10; }

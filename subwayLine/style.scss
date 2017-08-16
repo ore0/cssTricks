@@ -74,7 +74,7 @@ a {
     top: $line-startVer + $station-height;
     // left: calc(((100% / 24) * 3) + #{$line-startHol});
     left: calc((100% / 24) * 3);
-    width: calc((((100% / 24) * 2));
+    width: calc(((100% / 24) * 2));
   }
   &__item {
     display: block;
