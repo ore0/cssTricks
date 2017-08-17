@@ -1,0 +1,198 @@
+$lineColor: red;
+$fontColor: #0062b2;
+$fontColor--dark: darken($fontColor, 20%);
+$blackColor: #444;
+$whiteColor: #fff;
+
+$borderWidth: .4rem;
+$triangleSize: .4rem; //三角形のサイズ *1/2サイズ
+$stationSize: 3.6rem; //駅の横幅
+$stationLong: $stationSize + ($triangleSize * 4) + (1.6rem * 7);
+$borderReference: ($stationSize - $borderWidth) / 2;
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: all .2s ease-in-out;
+}
+
+
+body {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 40px;
+  background-image: linear-gradient(62deg, lighten(#00a3d9, 50%), lighten(#00467e, 50%));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: YuGothic, "Hiragino Sans", "Hiragino Kaku Gothic proN", YuGothic, sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: $fontColor;
+  font-size: 3rem;
+}
+
+.line {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  &__item {
+    list-style-type: none;
+    a {
+      height: $stationLong;
+    }
+    &--type2 {
+      position: relative;
+      padding: $stationLong 0 0;
+      &:before {
+        position: absolute;
+        top: $borderReference;
+        left: $borderReference;
+        content: "";
+        width: $borderWidth;
+        height: $stationLong;
+        background-color: $lineColor;
+        z-index: -1;
+      }
+    }
+    &--left-3 {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        top: $stationLong + $borderReference;
+        right: $borderReference;
+        width: ($stationSize * 3) - ($borderReference * 2);
+        height: $borderWidth;
+        background-color: $lineColor;
+        z-index: -1;
+      }
+    }
+  }
+  &:before {
+    position: absolute;
+    top: $borderReference;
+    left: $borderReference;
+    content: "";
+    width: calc(100% - (#{$borderReference} * 2));
+    height: $borderWidth;
+    background-color: $lineColor;
+    z-index: -1;
+  }
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    &__item {
+      padding: 4px 0;
+    }
+    &:before {
+        width: $borderWidth;
+        height: calc(100% - (#{$borderReference} * 2));
+      }
+  }
+}
+
+.station {
+  display: block;
+  text-decoration: none;
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: $stationSize;
+    height: $stationSize;
+    margin: 0 0 ($triangleSize * 2);
+    border: solid $borderWidth $lineColor;
+    border-radius: 50%;
+    background-color: $whiteColor;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: $blackColor;
+    &__prefix {
+      font-size: 1rem;
+    }
+    &__num {
+      font-size: 1.2rem;
+    }
+  } //__icon
+  &__name {
+    position: relative;
+    display: block;
+    width: $stationSize;
+    padding: ($triangleSize * 2) 0 0;
+    line-height: $stationSize;
+    -ms-writing-mode     : tb-rl;
+    -webkit-writing-mode : vertical-rl;
+    writing-mode         : vertical-rl;
+    color: $fontColor;
+    font-size: 1.6rem;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: calc((100% - (#{$triangleSize} * 2)) / 2);
+      display: block;
+      width: 0;
+      height: 0;
+      border-width: $triangleSize;
+      border-color: transparent;
+      border-style: solid;
+      border-top-color: $fontColor;
+      border-bottom: none;
+    } //:before
+  } //__name
+  &:hover {
+    .station__icon {
+      margin: 0 0 ($triangleSize * 3);
+    }
+    .station__name {
+      color: $fontColor--dark;
+      &:before {
+        border-top-color: $fontColor--dark;
+      }
+    }
+  } //:hover
+  @media screen and (max-width: 600px) {
+   display: flex;
+    &__icon {
+      margin: 0 ($triangleSize * 2) 0 0;
+    }
+    &__name {
+      width: 100%;
+      height: $stationSize;
+      padding: 0 0 0 ($triangleSize * 2);
+      writing-mode: horizontal-tb;
+      &:before {
+        top: calc((100% - (#{$triangleSize} * 2)) / 2);
+        left: 0;
+        border-top: solid $triangleSize transparent;
+        border-bottom: solid $triangleSize transparent;
+        border-left: solid $triangleSize $fontColor;
+        border-right: none;
+      }
+    }
+    &:hover {
+      .station__icon {
+        margin: 0 ($triangleSize * 3) 0 0;
+      }
+      .station__name {
+      &:before {
+        border-top-color: transparent;
+        border-left-color: $fontColor--dark;
+      }
+    }
+    }
+  }
+} //.station
